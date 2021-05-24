@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service #to tell kind of manifest we are making
+metadata:
+  name: nodeport-service
+
+spec:
+  #type of service we are creating
+  type: NodePort
+  ports:
+   - targetPort: 8080
+     port: 80
+     nodePort: 30100
+  # to select which pod from 1000 pods   
+  selector:
+    name: jenkins

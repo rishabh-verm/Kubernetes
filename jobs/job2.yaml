@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-print-hello-with-bash
+spec:
+  ttlSecondsAfterFinished: 60 #why it is not working??
+  template:
+    spec:
+      containers:
+      - name: bash
+        image: bash
+        command: ["whoami"]
+      restartPolicy: Never
